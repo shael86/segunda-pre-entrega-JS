@@ -1,14 +1,24 @@
-// lista de productos
 
-const productos = [
-    {id:1 ,nombre:"Fideos", precio: 1000},
-    {id:2 ,nombre:"Arroz", precio: 800},
-    {id:3 ,nombre:"Aceite", precio: 1100},
-    {id:4 ,nombre:"Mermelada", precio: 1300},
-    {id:5 ,nombre:"Yerba", precio: 750}
-    ];
+//Ordenar productos de mayor a menor precio
 
-function comprarProducto(){
+const ordenarMayorMenor = () => {
+    productos.sort((a,b)=> b.precio - a.precio);
+    mostrarListaOrdenada();
+}
+
+const mostrarListaOrdenada = () => {
+    const listaOrdenada = productos.map(producto => {
+        return '- '+producto.nombre+' $'+producto.precio
+    }
+    );
+
+    alert('Lista de precios de mayor a menor:'+'\n\n'+listaOrdenada.join('\n'))
+}
+
+ordenarMayorMenor()
+
+
+function compraDeProducto(){
     let productoId = 0;
     let productoSeleccionado = null
 
@@ -34,7 +44,7 @@ function comprarProducto(){
     return pedido
     }
 }
-const pedido = comprarProducto()
+const pedido = compraDeProducto()
 
 pedido.calcularSubTotal()
 pedido.calcularEnvio()
